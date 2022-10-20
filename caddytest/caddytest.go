@@ -214,7 +214,7 @@ func (tc *Tester) ensureConfigRunning(rawConfig string, configType string) error
 		return actual
 	}
 
-	for retries := 10; retries > 0; retries-- {
+	for retries := 100; retries > 0; retries-- {
 		if reflect.DeepEqual(expected, fetchConfig(client)) {
 			return nil
 		}
