@@ -108,6 +108,7 @@ func (tc *Tester) InitServer(rawConfig string, configType string) {
 // InitServer this will configure the server with a configurion of a specific
 // type. The configType must be either "json" or the adapter type.
 func (tc *Tester) initServer(rawConfig string, configType string) error {
+        fmt.Println("HELLO WORLD")
 
 	if testing.Short() {
 		tc.t.SkipNow()
@@ -138,7 +139,6 @@ func (tc *Tester) initServer(rawConfig string, configType string) error {
 	})
 
 	rawConfig = prependCaddyFilePath(rawConfig)
-        fmt.Println(rawConfig)
 	client := &http.Client{
 		Timeout: Default.LoadRequestTimeout,
 	}
