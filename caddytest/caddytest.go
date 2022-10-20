@@ -214,13 +214,12 @@ func (tc *Tester) ensureConfigRunning(rawConfig string, configType string) error
 		return actual
 	}
 
-	for retries := 100; retries > 0; retries-- {
+	for retries := 10; retries > 0; retries-- {
                 x := fetchConfig(client)
 		if reflect.DeepEqual(expected, x) {
 			return nil
 		}
-                fmt.Println(x)
-		time.Sleep(10 * time.Millisecond)
+		time.Sleep(1000 * time.Millisecond)
 	}
 	tc.t.Errorf("POSTed configuration isn't active")
 	return errors.New("EnsureConfigRunning: POSTed configuration isn't active")
