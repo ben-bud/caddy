@@ -220,6 +220,7 @@ func (tc *Tester) ensureConfigRunning(rawConfig string, configType string) error
 		if reflect.DeepEqual(expected, x) {
 			return nil
 		}
+                fmt.Println("retry: ", retries)
 		time.Sleep(1000 * time.Millisecond)
 	}
 	tc.t.Errorf("POSTed configuration isn't active")
