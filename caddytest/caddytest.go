@@ -138,6 +138,7 @@ func (tc *Tester) initServer(rawConfig string, configType string) error {
 	})
 
 	rawConfig = prependCaddyFilePath(rawConfig)
+        fmt.Println(rawConfig)
 	client := &http.Client{
 		Timeout: Default.LoadRequestTimeout,
 	}
